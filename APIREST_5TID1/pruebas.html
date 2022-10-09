@@ -1,0 +1,17 @@
+DELIMITER $$
+DROP PROCEDURE IF EXISTS `proAddUser`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proAddUser` (IN `personName` varchar(50),  IN `personLastName` varchar(100), IN `personRFC` VARCHAR (13), IN  `bActive` tinyint(1), IN `personId` INT, IN `user` varchar(20),IN `pass` varchar(40),IN `userType` varchar(20))   
+
+BEGIN 
+INSERT INTO  personas( personName, personLastName, personRFC, bActive)
+VALUES ( personName, personLastName, personRFC, 1);
+SELECT MAX(personId) INTO @idP FROM personas;
+INSERT INTO users(personId,user,pass,userType,bActive)
+            	VALUES (@idP,user,md5(pass),userType,1);
+ 
+ END$$
+
+ 
+
+
+  ALTER TABLE `personas` CHANGE `dtCreatedAt` `dtCreatedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
