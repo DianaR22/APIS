@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 
 
 if (empty($res)) {
-    echo '$var es o bien 0, vacía, o no se encuentra definida en absoluto';
+    echo 'Tabla vacía';
 }
 
 foreach ($res as $data) {
