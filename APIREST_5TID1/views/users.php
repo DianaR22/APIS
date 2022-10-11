@@ -28,7 +28,7 @@
 	}
 </style>
 <body>
-	<strong><center><h1>Bienvenido <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
+	<strong><center><h1>Bienvenid@ <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
 	<form action ="/APIREST_5TID1/APIREST/users.php" class="input-group p-2" method = "GET">	  
 	  <input type="text" class="form-control" placeholder="Nombre" name="nw_userName">
 	  <button type="submit" class="btn-info">Buscar</button>
