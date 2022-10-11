@@ -44,7 +44,25 @@ class users extends conexion{
 		return ($datos);
 
 	}
+	public function post($datos){
+		$datos = $datos;
+		$name =$datos['nw_userName'];
+		$lastNames = $datos['nw_apellidos'];
+		$rfc = $datos['nw_rfc'];
+		$nickname =$datos['nw_nickName'];
+		$userType = $datos['userType'];
+		$pass = $datos['nw_pass'];
+		$bActivo=1;
 
+		$query = "INSERT INTO `personas` (`personName`, `personLastName`, `personRFC`, `bActive`)
+		VALUES ('$name','$lastNames','$rfc','$bActivo')";
+		 $lastId=parent::postDataId($query);
+
+		 $query2="INSERT INTO `users` (`personId`, `user`, `pass`, `userType`, `bActive`) 
+		 VALUES ( '$lastId','$nickname ',md5('$pass'),'$userType','$bActivo')"; 
+			$result = parent::postData($query2);
+			return $result;
+	}
 
 
 }
